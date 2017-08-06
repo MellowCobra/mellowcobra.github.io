@@ -1,0 +1,121 @@
+/* Reset standard styles for all browsers */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+}
+
+h1 {
+    font-size: 250%;
+}
+
+h2 {
+    font-size: 200%;
+}
+
+h3 {
+    font-size: 150%;
+}
+
+h4 {
+    font-size: 100%;
+}
+
+h5 {
+    font-size: 50%;
+}
+
+
+/* Define the standard colors for the webpage */
+html {
+    --almostWhite: #E0E0F0;
+    --superLightGray: #C9C9DD;
+    --lightGray: #7f7f8f;
+    --gray: #737378;
+    --darkishGray: #2e2e3e;
+    --darkGray: #1e1e23;
+    --grayBlue: #86B8C6;
+    --purple: #6940A0;
+    --blue: #2D89E9;
+    --orange: #E28C52;
+    --mintBlue: #28FFAB;
+}
+
+
+/* Set the standard font for the website */
+html {
+    font-family: 'Nunito', sans-serif;
+}
+
+
+/* Styling for the rest of the webpage */
+body {
+    background-color: var(--almostWhite);
+    color: var(--darkGray);
+}
+
+a {
+    color: var(--blue)
+}
+
+.site-header {
+    background-image: linear-gradient(to right, var(--blue), var(--purple));
+    height: 160px;
+    width: 100%;
+    color: var(--almostWhite);
+    text-align: center;
+    overflow: hidden;
+}
+
+.site-header * {
+    transform: translateY(50%);
+}
+
+.nav {
+    background-color: var(--darkGray);
+    display: table;
+    width: 100%;
+}
+
+.nav-items {
+    float: right;
+    display: table;
+    height: 100%;
+    padding: 8px;
+}
+
+.nav-items a:hover {
+    background-color: var(--blue);
+    color: var(--almostWhite);
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.nav-items a.active {
+    background-color: var(--purple);
+    color: var(--almostWhite);
+    border-radius: 999px;
+}
+
+.nav-items a {
+    padding: 8px;
+    color: var(--blue);
+    text-decoration: unset;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.main-content {
+    margin: 16px;
+}
+
+.main-content p {
+    margin: 24px;
+}
+
+.main-content ul {
+    padding: 16px;
+}

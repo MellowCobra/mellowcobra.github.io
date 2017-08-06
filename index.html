@@ -1,9 +1,78 @@
 <!doctype html>
 <html>
-	<head>
-		<title>Grayson Dubois' Homepage</title>
-	</head>
-	<body>
-		<h1>Welcome to the homepage of Grayson Dubois!</h1>
-	</body>
+
+<head>
+    <title>Grayson Dubois' Homepage</title>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+    <!-- Vue Components -->
+    <script src="./components/home-content.js"></script>
+    <script src="./components/portfolio-content.js"></script>
+    <script src="./components/education-content.js"></script>
+    <script src="./components/about-content.js"></script>
+
+    <!-- Styles -->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link rel="stylesheet" href="style.css"></link>
+</head>
+
+<body>
+    <div class="site">
+        <div class="nav">
+            <div class="nav-items">
+                <a  v-for="nav in navLinks"
+                    @click="currentView = nav"
+                    :class="{ active: nav === currentView }">
+                        {{ nav.name }}
+                </a>
+            </div>
+        </div>
+        <div class="site-header">
+            <h1>{{ currentView.name }}</h1>
+            <h2>{{ currentView.subtitle }}</h2>
+        </div>
+        <component :is="currentView.component"></component>
+    </div>
+    <script>
+        let vue = new Vue({
+            el: '.site',
+            data: {
+                navLinks: {
+                    home: {
+                        name: 'Home',
+                        component: 'home-content',
+                        subtitle: 'Website of Grayson Dubois'
+                    },
+                    portfolio: {
+                        name: 'Portfolio',
+                        component: 'portfolio-content',
+                        subtitle: 'Projects I\'ve worked on'
+                    },
+                    education: {
+                        name: 'Education and Experience', 
+                        component: 'education-content',
+                        subtitle: 'My Background and Past Work Experiences'
+                    },
+                    about: {
+                        name: 'About Me',
+                        component: 'about-content',
+                        subtitle: 'Who I am when I\'m not at work'
+                    }
+                },
+                currentView: {}
+            },
+            watch: {
+                currentView() {
+                    console.log(this.currentView)
+                }
+            },
+            mounted: function() {
+                this.currentView = this.navLinks.home
+            }
+        });
+    </script>
+</body>
+
 </html>
